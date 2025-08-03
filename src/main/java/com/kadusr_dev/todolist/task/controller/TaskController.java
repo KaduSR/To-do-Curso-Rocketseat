@@ -1,5 +1,6 @@
 package com.kadusr_dev.todolist.task.controller;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,11 @@ public class TaskController {
         }
         var idUser = request.getAttribute("idUser");
         taskModel.setIdUser((UUID) idUser);
+
+        var currentDate = LocalDateTime.now();
+        if (currentDate.isAfter(taskModel.getStartAt())) {
+            
+        }
         var taskCreated = this.taskRepository.save(taskModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(taskCreated);
     }
