@@ -12,14 +12,19 @@ import com.kadusr_dev.todolist.repository.IUserRepository;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    
+
     @Autowired
     private IUserRepository userRepository;
 
     @PostMapping("/novo")
-    public void create(@RequestBody UserModel userModel) {
-
-        System.out.println(userModel.getNome());
+    public UserModel create(@RequestBody UserModel userModel) {
+        var user = this.userRepository.findByUsername(userModel.getUsername());
+        if (user != null) {
+            System.out.println("Usúario já existe");
+            return null;
+        }
+        var userCreated = this.userRepository.save(userModel);
+        return userCreated;
     }
 
 }
