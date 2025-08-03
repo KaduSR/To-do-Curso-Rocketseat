@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kadusr_dev.todolist.model.UserModel;
 import com.kadusr_dev.todolist.repository.IUserRepository;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -20,13 +22,18 @@ public class UserController {
 
     @PostMapping("/novo")
     public ResponseEntity create(@RequestBody UserModel userModel) {
-        
+
         var user = this.userRepository.findByUsername(userModel.getUsername());
 
         if (user != null) {
             System.out.println("Usúario já existe");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usúario já existe");
         }
+
+        var passwordHashred = BCrypt.withDefaults()
+                .hashToString(12, userModel.getPassword().toCharArray());
+
+        userModel.setPassword(passwordHashred);
 
         var userCreated = this.userRepository.save(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated + " criado com sucesso");
