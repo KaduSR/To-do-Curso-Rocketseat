@@ -107,7 +107,7 @@ Com este projeto, aprendi na prática:
 
 Conecte-se comigo:
 
-[![LinkedIn](https://img.shields.io/badge/-Carlos%20Eduardo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carloseduardoribeirodev/)](https://www.linkedin.com/in/carloseduardoribeirodev/)
+[![LinkedIn](https://img.shields.io/badge/-Kadu%20Dev-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kaduesr/)](https://www.linkedin.com/in/kaduesr//)
 
 ---
 
