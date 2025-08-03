@@ -1,5 +1,7 @@
 package com.kadusr_dev.todolist.task.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kadusr_dev.todolist.task.model.TaskModel;
 import com.kadusr_dev.todolist.task.repository.ITaskRepository;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/task")
 public class TaskController {
@@ -19,14 +23,15 @@ public class TaskController {
     private ITaskRepository taskRepository;
 
     @PostMapping("/")
-    public ResponseEntity createTask(@RequestBody TaskModel taskModel) {
+    public ResponseEntity createTask(@RequestBody TaskModel taskModel, HttpServletRequest request) {
 
         var task = this.taskRepository.findByTitle(taskModel.getTitle());
 
         if (task != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tarefa já criada");
         }
-
+        var idUser = request.getAttribute("idUser");
+        taskModel.setIdUser((UUID) idUser);
         var taskCreated = this.taskRepository.save(taskModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(taskCreated);
     }
