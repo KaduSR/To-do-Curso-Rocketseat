@@ -9,7 +9,7 @@
     "customInstructions": "",
     "onlyStagedChanges": false,
     "autoCommit": true,
-    "autoPush": true,
+    "autoPush": false,
     "promptForRefs": false
   },
   "gemini": {
