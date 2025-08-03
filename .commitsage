@@ -8,7 +8,7 @@
     "useCustomInstructions": false,
     "customInstructions": "",
     "onlyStagedChanges": false,
-    "autoCommit": true,
+    "autoCommit": false,
     "autoPush": false,
     "promptForRefs": false
   },

@@ -36,7 +36,8 @@ public class TaskController {
 
         var currentDate = LocalDateTime.now();
         if (currentDate.isAfter(taskModel.getStartAt())) {
-           retunb 
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("A Data de início deve ser maior que a data atual");
         }
         var taskCreated = this.taskRepository.save(taskModel);
         return ResponseEntity.status(HttpStatus.OK).body(taskCreated);
