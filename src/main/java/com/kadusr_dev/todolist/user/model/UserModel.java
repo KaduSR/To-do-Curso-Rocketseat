@@ -1,4 +1,4 @@
-package com.kadusr_dev.todolist.model;
+package com.kadusr_dev.todolist.user.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
