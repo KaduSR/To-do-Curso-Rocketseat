@@ -26,7 +26,6 @@ public class UserController {
         var user = this.userRepository.findByUsername(userModel.getUsername());
 
         if (user != null) {
-            System.out.println("Usúario já existe");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usúario já existe");
         }
 
@@ -36,7 +35,7 @@ public class UserController {
         userModel.setPassword(passwordHashred);
 
         var userCreated = this.userRepository.save(userModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(userCreated + " criado com sucesso");
+        return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }
 
 }
