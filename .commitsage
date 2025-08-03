@@ -3,7 +3,7 @@
     "type": "gemini"
   },
   "commit": {
-    "commitLanguage": "pt-br",
+    "commitLanguage": "english",
     "commitFormat": "conventional",
     "useCustomInstructions": false,
     "customInstructions": "",
