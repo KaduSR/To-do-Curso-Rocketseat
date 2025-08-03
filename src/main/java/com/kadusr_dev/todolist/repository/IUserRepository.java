@@ -1,5 +1,11 @@
 package com.kadusr_dev.todolist.repository;
 
-public interface IUserRepository {
-    
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.kadusr_dev.todolist.model.UserModel;
+
+public interface IUserRepository extends JpaRepository<UserModel, UUID> {
+
 }
