@@ -38,8 +38,9 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("A Data de início deve ser maior que a data atual");
         }
+
         var task = this.taskRepository.save(taskModel);
-        return ResponseEntity.status(HttpStatus.OK).body(task);
+        return ResponseEntity.status(HttpStatus.CREATED).body(task);
     }
 
     @GetMapping("/")
@@ -55,13 +56,11 @@ public class TaskController {
         var task = this.taskRepository.findById(id).orElse(null);
         var idUser = request.getAttribute("idUser");
 
-        // Validação 1: Tarefa não encontrada
         if (task == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Tarefa não encontrada.");
         }
 
-        // Validação 2: Usuário não tem permissão para alterar
         if (!task.getIdUser().equals(idUser)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Usuário não tem permissão para alterar essa tarefa.");
