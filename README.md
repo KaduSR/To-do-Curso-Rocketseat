@@ -78,8 +78,8 @@ cd To-do-Curso-Rocketseat
 
 O projeto está publicado no Render:
 
-> 🔗 [`https://todolist-api.onrender.com`](https://todolist-api.onrender.com)  
-> _(URL fictícia — substitua pela sua)_
+> 🔗 [`https://to-do-curso-rocketseat.onrender.com`](https://to-do-curso-rocketseat.onrender.com)  
+
 
 ---
 
