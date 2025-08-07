@@ -2,6 +2,7 @@
 FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 COPY . .
+RUN chmod +x ./mvnw
 RUN ./mvnw clean install
 
 # Stage 2: Create the final image
