@@ -5,7 +5,7 @@ COPY . .
 RUN ./mvnw clean install
 
 # Stage 2: Create the final image
-FROM openjdk:17-jre-slim
+FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/todolist-1.0.0.jar ./app.jar
 EXPOSE 8080
