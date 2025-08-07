@@ -1,4 +1,4 @@
-package com.kadusr_dev.todolist.error
+package com.kadusr_dev.todolist.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
